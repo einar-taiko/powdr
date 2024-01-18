@@ -28,11 +28,9 @@ fn split_gl_test() {
     gen_estark_proof(f, Default::default());
 }
 
-/*
 #[test]
 fn keccakf_test() {
     // should actually be "std/hash/keccak.asm"
     let f = "std/keccak.asm";
     gen_halo2_proof(f, Default::default());
 }
-*/
