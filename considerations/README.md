@@ -63,3 +63,11 @@ https://docs.polygon.technology/zkEVM/architecture/zkprover/hashing-state-machin
 https://docs.polygon.technology/zkEVM/architecture/zkprover/hashing-state-machines/keccakf-sm/
 
 `ConnA` is convention for constant pol A.
+
+
+run test to until syntax is ok
+
+	c test -p pipeline -- 
+
+
+

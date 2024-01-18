@@ -1,4 +1,4 @@
-machine KeccakF(??);
+machine KeccakF(LASTBLOCK, operation_id) {
 
     pol constant ConnA, ConnB, ConnC, GateType, kGateType, kA, kB, kC;
     pol commit a[4], b[4], c[4];
@@ -9,10 +9,16 @@ machine KeccakF(??);
 
     {a44, b44, c44} connect {ConnA, ConnB, ConnC};
 
-    { GateType, a[0], b[0], c[0] } in { kGateType, kA, kB, kC } ;
-    { GateType, a[1], b[1], c[1] } in { kGateType, kA, kB, kC } ;
-    { GateType, a[2], b[2], c[2] } in { kGateType, kA, kB, kC } ;
-    { GateType, a[3], b[3], c[3] } in { kGateType, kA, kB, kC } ;
+    { GateType, a[0], b[0], c[0] } in { kGateType, kA, kB, kC };
+    { GateType, a[1], b[1], c[1] } in { kGateType, kA, kB, kC };
+    { GateType, a[2], b[2], c[2] } in { kGateType, kA, kB, kC };
+    { GateType, a[3], b[3], c[3] } in { kGateType, kA, kB, kC };
 
-    Global.L1 * a44 = 0;
-    Global.L1 * (2**44-1-b44) = 0;
+    // Global.L1 * a44 = 0;
+    // Global.L1 * (2**44-1-b44) = 0;
+
+    // https://docs.powdr.org/pil/fixed_columns.html#values-with-repetitions
+    pol constant L1 = [1] + [0]*;
+    L1 * a44 = 0;
+    L1 * (2**44-1-b44) = 0;
+}
